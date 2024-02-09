@@ -31,26 +31,26 @@
 // }
 
 
-// const getLocation = () => {
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(
-//             position => {
-//             const latitude = position.coords.latitude;
-//             const longitude = position.coords.longitude;
+const getLocation = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
 
-//             console.log("longitude:", longitude);
-//             console.log("latitude:", latitude);
+            console.log("longitude:", longitude);
+            console.log("latitude:", latitude);
 
-//             getWeatherByCoordinates(latitude, longitude);
-//         },
-//         error => {
-//             console.error("Error Code = " + error.code + " - " + error.message);
-//         });
+            getWeatherByCoordinates(latitude, longitude);
+        },
+        error => {
+            console.error("Error Code = " + error.code + " - " + error.message);
+        });
            
-//     } else {
-//         console.log("Geolocation is not supported by this browser.");
-//     }
-// }
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
 //     function getWeatherByCoordinates(latitude, longitude) {
 //         const apikey = "62a88c5960ba9663ad4477e1bd5d894b"
 //         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}&units=metric`)

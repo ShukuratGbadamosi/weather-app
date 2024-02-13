@@ -41,7 +41,7 @@ const getLocation = () => {
 
             console.log("longitude:", longitude);
             console.log("latitude:", latitude);
-
+            
             getWeatherByCoordinates(latitude, longitude);
         },
         error => {
@@ -52,7 +52,7 @@ const getLocation = () => {
         console.log("Geolocation is not supported by this browser.");
     }
 }
-
+    
     function getWeatherByCoordinates(latitude, longitude) {
         const apikey = "62a88c5960ba9663ad4477e1bd5d894b"
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}&units=metric`)
@@ -63,6 +63,7 @@ const getLocation = () => {
             const description = data.weather[0].description;
             const windSpeed = data.wind.speed;
 
+        locationDetector.innerHTML = `${(data.name, data.sys.country)}`;
         temp.innerHTML = `${(data.main.temp).toFixed(1)}°C`;
         desc.innerHTML = `${(data.weather[0].description)}`;
         humid.innerHTML = `${(data.main.humidity)}%`;
